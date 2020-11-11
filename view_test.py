@@ -1,6 +1,6 @@
 from mujoco_py import load_model_from_path, MjSim, MjViewer
 
-model_path = "hello.xml"
+model_path = "xml/arm.xml"
 model = load_model_from_path(model_path)
 sim = MjSim(model)
 viewer = MjViewer(sim)
