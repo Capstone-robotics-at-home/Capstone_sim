@@ -11,3 +11,5 @@ Use Mujoco to build a simulation environment for Jetbot
 
 for xml file generation
 
+## 2. gym
+an open-sourced simulation environment 
