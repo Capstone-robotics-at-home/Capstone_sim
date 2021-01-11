@@ -1,6 +1,6 @@
 from mujoco_py import load_model_from_path, MjSim, MjViewer
 
-model_path = "xml/ant-gen.xml"
+model_path = "xml/hello_v1.xml"
 model = load_model_from_path(model_path)
 sim = MjSim(model)
 viewer = MjViewer(sim)
