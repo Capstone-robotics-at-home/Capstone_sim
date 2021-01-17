@@ -7,4 +7,4 @@ viewer = MjViewer(sim)
 
 for i in range(15000):
     sim.step()
-    viewer.render()
+    viewer.render() 
