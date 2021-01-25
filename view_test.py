@@ -5,6 +5,7 @@ model = load_model_from_path(model_path)
 sim = MjSim(model)
 viewer = MjViewer(sim)
 
-for i in range(15000):
-    sim.step()
+for t in range(5000):
+    action = 0.4 if t % 100 < 25 or t % 100 >74 else -0.4
+    sim.step(action)
     viewer.render() 
