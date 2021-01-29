@@ -16,3 +16,4 @@ an open-sourced simulation environment
 
 # Works
 1. jetbot modeling: a simple model of jetbot has been added as shown in bot_env_v1.xml
+2. A diagram of the whole process. ![diagram](main.png)
