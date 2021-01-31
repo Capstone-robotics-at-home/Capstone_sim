@@ -59,6 +59,6 @@ for t in range(5000):
     # env = bot.forward()
     # env = bot.backward()
     env = bot.left()
-    env = bot.right()
+    # env = bot.right()
 
 env.close()
