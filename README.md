@@ -17,3 +17,7 @@ an open-sourced simulation environment
 # Works
 1. jetbot modeling: a simple model of jetbot has been added as shown in bot_env_v1.xml
 2. A diagram of the whole process. ![diagram](main.png)
+3. Jetbot class created
+   * front, left, right movement function can now work 
+   * back function is not working 
+4. Controller class created for keyboard control 
