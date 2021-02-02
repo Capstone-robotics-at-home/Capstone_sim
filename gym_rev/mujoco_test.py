@@ -80,10 +80,12 @@ class Jetbot():
 
 
 bot = Jetbot()
+KeyCtrling = True
+print('Press front')
+
 # env = bot.forward()
 
 for i in range(5000):
-    env.render()
     # action = env.action_space.sample()
     # print(env.action_space)
     # env = bot.front()
@@ -91,18 +93,19 @@ for i in range(5000):
     # env = bot.right()
     # env = bot.back()
     # env = bot.cont_left()
-
+    
     c = Control()
     i = 0
-    while True:
+    while KeyCtrling:
         cmd = c.getdir()
-        if cmd == 1:
-            env = bot.front()
-        elif cmd == 2:
-            env = bot.left()
-        elif cmd == 3:
-            env = bot.right()
+        if cmd == 1: env = bot.front()
+        elif cmd == 2: env = bot.left()
+        elif cmd == 3: env = bot.right()
         else:
             print('something wrong')
+            KeyCtrling = False
+    env.render()
+    
+
 
 env.close()

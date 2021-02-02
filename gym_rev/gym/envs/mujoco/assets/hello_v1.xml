@@ -36,25 +36,25 @@
 			<geom name="torso_geom" pos="0 0 0.3" size="0.6 0.4 0.2" type="box"/>
 			<joint armature="0" damping="0" limited="false"  name="root" type="free"/>
 			<body name="front_connect">
-				<geom fromto="-0.5 0 0.1 -0.5 0 0.05" name="front_geom_connect" size="0.05" type="capsule"/>
-				<body name="front_ball" pos="-0.5 0 0.05" >
+				<geom fromto="0.5 0 0.1 0.5 0 0.05" name="front_geom_connect" size="0.05" type="capsule"/>
+				<body name="front_ball" pos="0.5 0 0.05" >
 					<geom name="ball" size="0.05" type="sphere"/>
 				</body>
 			</body>
 
 			<body name="right_shaft">
-				<geom fromto="0.2 0.5 0.2 0.2 0.3 0.2" name="right_geom_shaft" size="0.05" type="capsule"/>
-				<joint name="joint_torso_right_shaft" range="-30 30" type="hinge" axis = "0 -1 0" pos = '0.2 0.3 0.2'/>				
+				<geom fromto="-0.2 0.5 0.2 -0.2 0.3 0.2" name="right_geom_shaft" size="0.05" type="capsule"/>
+				<joint name="joint_torso_right_shaft" range="-90 90" type="hinge" axis = "0 -1 0" pos = '-0.2 0.3 0.2'/>				
 				<body name="wheel_right">
-					<geom name="wheel_right_geom" pos="0.2 0.5 0.2" size="0.2 0.05" type="cylinder" euler = '90 0 0'/>
+					<geom name="wheel_right_geom" pos="-0.2 0.5 0.2" size="0.2 0.05" type="cylinder" euler = '90 0 0'/>
 				</body>	
 			</body>		
 
 			<body name="left_shaft">
-				<geom fromto="0.2 -0.5 0.2 0.2 -0.3 0.2" name="left_geom_shaft" size="0.05" type="capsule"/>
-				<joint name="joint_torso_left_shaft" range="-30 30" type="hinge" axis = "0 -1 0" pos = '0.2 -0.3 0.2'/>				
+				<geom fromto="-0.2 -0.5 0.2 -0.2 -0.3 0.2" name="left_geom_shaft" size="0.05" type="capsule"/>
+				<joint name="joint_torso_left_shaft" range="-90 90" type="hinge" axis = "0 -1 0" pos = '-0.2 -0.3 0.2'/>				
 				<body name="wheel_left" >
-					<geom name="wheel_left_geom" pos="0.2 -0.5 0.2"  size="0.2 0.05" type="cylinder" euler = '90 0 0'/>
+					<geom name="wheel_left_geom" pos="-0.2 -0.5 0.2"  size="0.2 0.05" type="cylinder" euler = '90 0 0'/>
 				</body>		
 			</body>	
 		</body>
