@@ -1,5 +1,4 @@
 import gym
-import pygame
 from pynput.keyboard import Key,Listener
 
 env = gym.make('Hello-v1')
