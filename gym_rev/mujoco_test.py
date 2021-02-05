@@ -30,7 +30,7 @@ class Jetbot():
     DISTANCE, ANGLE, T are the tuning args 
     '''
 
-    DISTANCE = 0.4
+    DISTANCE = 0.5
     ANGLE = 2
     T = 20
 
@@ -81,7 +81,7 @@ class Jetbot():
 
 bot = Jetbot()
 KeyCtrling = True
-print('Press front')
+print('Press ↑ to continue')
 
 # env = bot.forward()
 
@@ -102,7 +102,7 @@ for i in range(5000):
         elif cmd == 2: env = bot.left()
         elif cmd == 3: env = bot.right()
         else:
-            print('something wrong')
+            print('Lost Control')
             KeyCtrling = False
     env.render()
     
