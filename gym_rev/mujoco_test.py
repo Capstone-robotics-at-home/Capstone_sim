@@ -30,7 +30,7 @@ class Jetbot():
     DISTANCE, ANGLE, T are the tuning args 
     '''
 
-    DISTANCE = 0.5
+    DISTANCE = 0.45
     ANGLE = 2
     T = 20
 
@@ -52,7 +52,7 @@ class Jetbot():
         return env
 
     def front(self):
-        print('2-wheel-front')
+        print('forward')
         for t in range(self.T):
             env.render()
             act = [self.DISTANCE, self.DISTANCE] if t % self.T < (
@@ -61,7 +61,7 @@ class Jetbot():
         return env
 
     def back(self):
-        print('2-wheel-back')
+        print('backward')
         for t in range(self.T):
             env.render()
             act = [self.DISTANCE, self.DISTANCE] if t % self.T < (
