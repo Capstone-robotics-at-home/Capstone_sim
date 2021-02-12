@@ -1,10 +1,6 @@
-import gym
-from KeyController import Control
-
+import gym 
 
 env = gym.make('Hello-v1')
-env.reset()
-
 
 class Jetbot():
     '''
@@ -13,7 +9,6 @@ class Jetbot():
     back is not working properly 
     DISTANCE, ANGLE, T are the tuning args 
     '''
-
     DISTANCE = 0.45
     ANGLE = 2
     T = 20
@@ -61,30 +56,3 @@ class Jetbot():
             act = [self.ANGLE, 0]
             env.step(act)
         return env
-
-
-bot = Jetbot()
-c = Control()
-c.isCtrling = False
-
-for i in range(5000):
-    # action = env.action_space.sample()
-    # print(env.action_space)
-    env = bot.left()
-    # env = bot.right()
-    # env = bot.front()
-    # env = bot.back()
-    
-    while c.isCtrling:
-        cmd = c.getdir()
-        if cmd == 1: env = bot.front()
-        elif cmd == 2: env = bot.left()
-        elif cmd == 3: env = bot.right()
-        else:
-            print('Lost Control')
-            c.isCtrling = False
-    env.render()
-    
-
-
-env.close()
