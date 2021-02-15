@@ -1,5 +1,5 @@
-import gym
 from KeyController import Control
+import gym
 
 
 env = gym.make('Hello-v1')
@@ -30,12 +30,11 @@ class Jetbot():
         print('left')
         for t in range(self.T):
             env.render()
-            act = [0, self.ANGLE] if t % self.T < (
-                self.T // 2) else [0, -self.ANGLE]
+            act = [0, self.ANGLE] if t % self.T < self.T // 1.5 else [0, -self.ANGLE]
             env.step(act)
         return env
 
-    def front(self):
+    def forward(self):
         print('forward')
         for t in range(self.T):
             env.render()
@@ -43,22 +42,14 @@ class Jetbot():
                 self.T // 2) else [-self.DISTANCE, -self.DISTANCE]
             env.step(act)
         return env
-
+ 
     def back(self):
+        # XXX still under review
         print('backward')
         for t in range(self.T):
             env.render()
             act = [self.DISTANCE, self.DISTANCE] if t % self.T < (
-                self.T // 10) else [-self.DISTANCE, -self.DISTANCE]
-            env.step(act)
-        return env
-
-    def cont_left(self):
-        # XXXX
-        print('left continuously')
-        for t in range(self.T):
-            env.render()
-            act = [self.ANGLE, 0]
+                self.T // 2) else [-self.DISTANCE, -self.DISTANCE]
             env.step(act)
         return env
 
@@ -72,12 +63,12 @@ for i in range(5000):
     # print(env.action_space)
     env = bot.left()
     # env = bot.right()
-    # env = bot.front()
+    # env = bot.forward()
     # env = bot.back()
     
     while c.isCtrling:
         cmd = c.getdir()
-        if cmd == 1: env = bot.front()
+        if cmd == 1: env = bot.forward()
         elif cmd == 2: env = bot.left()
         elif cmd == 3: env = bot.right()
         else:
