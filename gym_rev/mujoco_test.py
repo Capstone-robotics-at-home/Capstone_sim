@@ -56,7 +56,7 @@ class Jetbot():
 
 bot = Jetbot()
 c = Control()
-c.isCtrling = False
+c.isCtrling = False 
 
 for i in range(5000):
     # action = env.action_space.sample()
