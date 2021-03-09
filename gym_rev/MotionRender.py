@@ -1,4 +1,4 @@
-import gym
+import gym 
 
 class MotionRender(): 
     ''' Jetbot simulation render for each step '''
