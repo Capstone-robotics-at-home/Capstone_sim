@@ -6,3 +6,7 @@
 * With 3D rendering, the Mojoco_jetbot can move forward, left, right 
 * Similar command as Jetbot, even less accurate
 * Hopefully, after tested feasible here, the real world jetbot can act as we want.
+
+# MotionRender 
+* A 3D render for Jetbot 
+* The render can read cmd.txt to decide the motion of Jetbot according to it.

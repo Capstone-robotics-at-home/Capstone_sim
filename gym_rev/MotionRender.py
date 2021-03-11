@@ -1,4 +1,5 @@
-import gym 
+import gym
+import time  
 
 class MotionRender(): 
     ''' Jetbot simulation render for each step '''
@@ -37,19 +38,37 @@ class MotionRender():
 
     def quit(self):
         self.env.close() 
-    
+
+    def step_by_cmd(self):
+        """ Read the com.txt, render the motion """
+        cmd_txt = open('gym_rev/cmd.txt','r')
+        cmd = cmd_txt.read(10)
+        if cmd == 'left':
+            self.left()
+        elif cmd == 'right':
+            self.right()
+        elif cmd == 'forward':
+            self.forward() 
+        else:
+            print('wrong command')
+            raise ValueError('Invalid string of command')
+
+    def demo_motion(self):
+        """ simple demo motion like turn left, right, goforward """
+        for _ in range(10):
+            self.left() 
+        for _ in range(100):
+            self.right()           
+
 
 
 if __name__ == '__main__':
     mRender = MotionRender() 
-    for _ in range(10):
-        mRender.left() 
-    for _ in range(10):
-        mRender.right() 
-    for _ in range(10):
-        mRender.forward() 
+    # mRender.demo_motion() 
+    while True:
+        mRender.step_by_cmd()
+        # time.sleep(1)
     mRender.quit() 
-
     
 
     
