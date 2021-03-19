@@ -23,7 +23,7 @@ class MotionRender():
         for t in range(self.T):
             self.env.render()
             act = [0, self.ANGLE] if t % self.T < self.T // 1.5 else [0, -self.ANGLE]
-            self.env.step(act)
+            self.env.step(act)  
             self.env.render() 
 
     def forward(self):
@@ -45,18 +45,22 @@ class MotionRender():
         cmd = cmd_txt.read(10)
         if cmd == 'left':
             self.left()
+            time.sleep(1)
         elif cmd == 'right':
             self.right()
+            time.sleep(1)
         elif cmd == 'forward':
             self.forward() 
+            time.sleep(1)
+        elif cmd == '0':
+            print('Waiting')
+            self.env.render()
         else:
             print('wrong command')
             raise ValueError('Invalid string of command')
 
     def demo_motion(self):
-        """ simple demo motion like turn left, right, goforward """
-        for _ in range(10):
-            self.left() 
+        """ simple demo motion like turn left, right, go forward """
         for _ in range(100):
             self.right()           
 
@@ -64,10 +68,10 @@ class MotionRender():
 
 if __name__ == '__main__':
     mRender = MotionRender() 
-    # mRender.demo_motion() 
+    # mRender.demo_motion()  
+    mRender.right()
     while True:
         mRender.step_by_cmd()
-        # time.sleep(1)
     mRender.quit() 
     
 
