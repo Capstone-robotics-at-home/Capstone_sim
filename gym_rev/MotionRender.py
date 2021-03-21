@@ -43,20 +43,22 @@ class MotionRender():
         """ Read the com.txt, render the motion """
         cmd_txt = open('gym_rev/cmd.txt','r')
         cmd = cmd_txt.read(10)
+        cmd_txt.close()
+        DT = 0.2
         if cmd == 'left':
             self.left()
-            time.sleep(1)
+            time.sleep(DT)
         elif cmd == 'right':
             self.right()
-            time.sleep(1)
+            time.sleep(DT)
         elif cmd == 'forward':
             self.forward() 
-            time.sleep(1)
-        elif cmd == '0':
+            time.sleep(DT)
+        elif cmd == '0' or cmd == '': 
             print('Waiting')
             self.env.render()
         else:
-            print('wrong command')
+            print('wrong command: ',cmd)
             raise ValueError('Invalid string of command')
 
     def demo_motion(self):
@@ -69,7 +71,7 @@ class MotionRender():
 if __name__ == '__main__':
     mRender = MotionRender() 
     # mRender.demo_motion()  
-    mRender.right()
+    # mRender.right()
     while True:
         mRender.step_by_cmd()
     mRender.quit() 
