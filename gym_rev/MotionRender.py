@@ -44,7 +44,7 @@ class MotionRender():
         cmd_txt = open('gym_rev/cmd.txt','r')
         cmd = cmd_txt.read(10)
         cmd_txt.close()
-        DT = 0.2
+        DT = 0.5
         if cmd == 'left':
             self.left()
             time.sleep(DT)
@@ -75,8 +75,4 @@ if __name__ == '__main__':
     while True:
         mRender.step_by_cmd()
     mRender.quit() 
-    
-
-    
-     
 
