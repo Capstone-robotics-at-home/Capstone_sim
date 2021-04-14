@@ -8,7 +8,7 @@ import numpy as np
 from matplotlib import patches as mpatches
 from cmath import pi, sin, cos
 
-DT = 0.05  # the fresh time 
+DT = 0.01  # the fresh time 
 V = 0.6  # velocity 
 V_THETA = 2*pi / 0.7  # angular velocity 
 
@@ -26,7 +26,6 @@ class JetbotPlt():
         self.theta += DT * self.V_THETA 
         if self.theta > 2*pi:
             self.theta -= 2*pi
-
         self.render_cart()
 
     def right(self):
@@ -59,12 +58,14 @@ class JetbotPlt():
 
     def act(self, cmd):
         """ act according to command """
-        if cmd == 0:
+        if cmd == 'forward':
             self.forward() 
-        elif cmd == 1:
+        elif cmd == 'left':
             self.left()
-        elif cmd == 2:
+        elif cmd == 'right':
             self.right()
+        elif cmd == '0':
+            self.render_cart()
         else: 
             print('Unknown command')
         
@@ -74,26 +75,30 @@ def canvas_init():
     plt.cla()
     plt.axis('equal')
     # plt.autoscale(False)
-    plt.plot([0,0,2,2,0], [0,1,1,0,0], color = 'b', alpha = 1)  # draw boundary
+    plt.plot([0,0,2,2,0], [0,1,1,0,0], color = 'b', alpha = 0.001)  # draw boundary
     # obstacles 
     obstacle = mpatches.Rectangle(obs_center, 0.4,0.2, color = 'y')
     ax.add_patch(obstacle)
     # target
     target = mpatches.RegularPolygon(target_center,3,0.1, color = 'r')
     ax.add_patch(target)
+    plt.axis('off')
 
 
 # plt.ion()
 jetbot = JetbotPlt() # Jetbot class
 fig, ax = plt.subplots() 
-obs_center = np.array([0.5,0.6])
+obs_center = np.array([0.5,0.0])
 target_center = np.array([1.2,1.0])
-# plt.axis('off')
 
-
+i = 0 
 while True:
-
     canvas_init()
-    action = np.random.choice([0,1,2])
-    jetbot.act(action)
+    # action = np.random.choice(['forward','left','right'])
+    cmd_txt = open('cmd.txt','r')
+    cmd = cmd_txt.read()
+    cmd_txt.close()
+    jetbot.act(cmd)
     plt.pause(DT)
+    # plt.savefig('shots/pic%d.jpg' %i)
+    i += 1
