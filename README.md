@@ -1,5 +1,6 @@
 # Repo for 3D rendering using gym.MuJoCo 
-* Directly used the resouce code and deleted many unused files 
+* Directly used the resouce code and deleted many unused files
+* However, it is still needed to register for MuJoCo 
 * Ideally, it can be the same using _pip install -e_ as the tuturial notes 
   
 # An 'inaccurate' simulation env for jetbot 

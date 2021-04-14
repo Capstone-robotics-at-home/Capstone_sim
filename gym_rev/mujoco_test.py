@@ -56,12 +56,12 @@ class Jetbot():
 
 bot = Jetbot()
 c = Control()
-c.isCtrling = False 
+c.isCtrling = True 
 
 for i in range(5000):
     # action = env.action_space.sample()
     # print(env.action_space)
-    env = bot.left()
+    # env = bot.left()
     # env = bot.right()
     # env = bot.forward()
     # env = bot.back()
@@ -72,10 +72,10 @@ for i in range(5000):
         elif cmd == 2: env = bot.left()
         elif cmd == 3: env = bot.right()
         else:
-            print('Lost Control')
-            c.isCtrling = False
-    env.render()
-    
+            print('Wrong input, Try again. ')
+            # c.isCtrling = False
 
+        env.render() 
+    env.render()
 
 env.close()
