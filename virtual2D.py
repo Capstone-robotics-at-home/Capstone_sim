@@ -85,20 +85,28 @@ def canvas_init():
     plt.axis('off')
 
 
-# plt.ion()
+plt.ion()
 jetbot = JetbotPlt() # Jetbot class
 fig, ax = plt.subplots() 
 obs_center = np.array([0.5,0.0])
 target_center = np.array([1.2,1.0])
 
-i = 0 
-while True:
-    canvas_init()
-    # action = np.random.choice(['forward','left','right'])
-    cmd_txt = open('cmd.txt','r')
-    cmd = cmd_txt.read()
-    cmd_txt.close()
-    jetbot.act(cmd)
-    plt.pause(DT)
-    # plt.savefig('shots/pic%d.jpg' %i)
-    i += 1
+def simulation2D():
+    i = 0 
+    # cmd_file = open('cmd.txt', 'w')
+    # cmd_file.write('0')  # initiate the command with '0'
+    # cmd_file.close()
+
+    while True:
+        canvas_init()
+        # action = np.random.choice(['forward','left','right'])
+        cmd_txt = open('cmd.txt','r')
+        cmd = cmd_txt.read()
+        cmd_txt.close()
+        jetbot.act(cmd)
+        plt.pause(DT)
+        plt.savefig('pic.jpg')
+        i += 1
+
+if __name__ == '__main__':
+    simulation2D()
