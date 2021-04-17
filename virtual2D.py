@@ -88,7 +88,7 @@ def canvas_init():
 plt.ion()
 jetbot = JetbotPlt() # Jetbot class
 fig, ax = plt.subplots() 
-obs_center = np.array([0.5,0.0])
+obs_center = np.array([0.5,0.5])
 target_center = np.array([1.2,1.0])
 
 def simulation2D():
