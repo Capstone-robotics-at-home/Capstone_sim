@@ -7,6 +7,7 @@
 
 import time 
 import socket
+import numpy as np 
 
 PATH = '../Capstone_Simulation/cmd.txt'
 def cmd_writer(s_cmd): 
@@ -31,6 +32,7 @@ if __name__ == '__main__':
     while True:
         clientsocket, address = s.accept()
         cmd = cmd_reader()
+        # cmd = np.random.choice(['left', 'right','forward'])
         time.sleep(DURATION)
         print(cmd)
         clientsocket.send(bytes(cmd,"utf-8"))

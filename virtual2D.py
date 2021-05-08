@@ -1,6 +1,6 @@
 '''
  # @ Author: Zion Deng
- # @ Description: Simulation env build on plt
+ # @ Description: Simulation env build on matplotlib 
  '''
 
 from matplotlib import pyplot as plt
@@ -79,6 +79,9 @@ def canvas_init():
     # obstacles 
     obstacle = mpatches.Rectangle(obs_center, 0.4,0.2, color = 'y')
     ax.add_patch(obstacle)
+    # obs_center2 = np.array([0.2, 0.8])
+    # obstacle2 = mpatches.Rectangle(obs_center2, 0.4,0.2, color = 'y')
+    # ax.add_patch(obstacle2)
     # target
     target = mpatches.RegularPolygon(target_center,3,0.1, color = 'r')
     ax.add_patch(target)
@@ -89,7 +92,7 @@ plt.ion()
 jetbot = JetbotPlt() # Jetbot class
 fig, ax = plt.subplots() 
 obs_center = np.array([0.5,0.5])
-target_center = np.array([1.2,1.0])
+target_center = np.array([1.4,1.0])
 
 def simulation2D():
     i = 0 
@@ -99,13 +102,13 @@ def simulation2D():
 
     while True:
         canvas_init()
-        # action = np.random.choice(['forward','left','right'])
+        # action = np.random.choice(['forward','left','right'])  # uncomment it if you want the Jetbot move randomly 
         cmd_txt = open('cmd.txt','r')
         cmd = cmd_txt.read()
         cmd_txt.close()
         jetbot.act(cmd)
         plt.pause(DT)
-        plt.savefig('pic.jpg')
+        # plt.savefig('pic.jpg')
         i += 1
 
 if __name__ == '__main__':

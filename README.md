@@ -1,9 +1,12 @@
 # virtual2D: 
-A simple environment using Matplotlib
+* A simple environment using Matplotlib
 ![picture](pic.jpg)
+* It can wait for command sent to cmd.txt file. 
+* I can cooperate with video-real file in Capstone-Integration repository. To do so, you might need a second screen, run virtual2D on the first screen and video-real on the second screen. 
 
 # cmd_operate: 
-operate cmd.txt file to write/ read/ send command. 
+* operate cmd.txt file to write/ read/ send command. 
+* to run socket client on the Jetbot, you need to check jetbotController repository.
 
 # gym_rev folder(not recommended):
 * Repo for 3D rendering using gym.MuJoCo. 
